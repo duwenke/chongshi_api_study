@@ -7,9 +7,9 @@
 		<form method="post" action="/login_action/">
 			<input name="username" type="text" placeholder="username"><br>
 			<input name="password" type="password" placeholder="password"><br>
-			{{ error }}<br>
+			{{ error }}<br> <!-- 返回错误提示信息 -->
 			<button id="btn" type="submit">登录</button>
-			{% csrf_token %}
+			{% csrf_token %} <!-- 添加CSRF令牌，不然会报错 -->
 		</form>
 	</body>
 </html>
