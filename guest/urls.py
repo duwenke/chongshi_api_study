@@ -21,4 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path(r'index/',views.index),#添加index路径
     path(r'login_action/', views.login_action),
+    path(r'event_manage/', views.event_manage),
+    path(r'accounts/login/', views.index),
+    path(r'', views.index),
 ]
