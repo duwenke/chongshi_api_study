@@ -24,4 +24,11 @@ urlpatterns = [
     path(r'event_manage/', views.event_manage),
     path(r'accounts/login/', views.index),
     path(r'', views.index),
+    path(r'search_name/', views.search_name),
+    path(r'guest_manage/', views.guest_manage),
+    path(r'search_phone/', views.search_phone),
+    path(r'sign_index/<eid>/', views.sign_index),
+    path(r'sign_index2/<eid>/', views.sign_index2),
+    path(r'sign_index_action/<eid>/', views.sign_index_action),
+    # path(r'api/', include('sign.urls', namespace="sign")),
 ]
