@@ -220,22 +220,22 @@ def sign_index_action(request,eid):
     #     if guest.sign == True:
     #         sign_data += 1
 
-    phone =  request.POST.get('phone','')
+    phone = request.POST.get('phone','')
     print(phone)
 
-    result = Guest.objects.filter(phone = phone)
+    result = Guest.objects.filter(phone=phone)
     if not result:
         return render(request, 'sign_index.html', {'event': event,
                                                    'hint': 'phone error.',
-                                                   'guest':guest_data,
-                                                   'sign':sign_data
+                                                   # 'guest':guest_data,
+                                                   # 'sign':sign_data
                                                    })
 
     result = Guest.objects.filter(phone = phone,event_id = eid)
     if not result:
         return render(request, 'sign_index.html', {'event': event,
                                                    'hint': 'event id or phone error.',
-                                                   'guest':guest_data,'sign':sign_data
+                                                   # 'guest':guest_data,'sign':sign_data
                                                    })
 
     result = Guest.objects.get(event_id = eid,phone = phone)
@@ -243,14 +243,14 @@ def sign_index_action(request,eid):
     if result.sign:
         return render(request, 'sign_index.html', {'event': event,
                                                    'hint': "user has sign in.",
-                                                   'guest':guest_data,
-                                                   'sign':sign_data
+                                                   # 'guest':guest_data,
+                                                   # 'sign':sign_data
                                                    })
     else:
         Guest.objects.filter(event_id = eid,phone = phone).update(sign = '1')
         return render(request, 'sign_index.html', {'event': event,
                                                    'hint':'sign in success!',
                                                    'user': result,
-                                                   'guest':guest_data,
-                                                   'sign':str(int(sign_data)+1)
+                                                   # 'guest':guest_data,
+                                                   # 'sign':str(int(sign_data)+1)
                                                    })
